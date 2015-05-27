@@ -1,0 +1,235 @@
+ul.cm-sslist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px;
+}
+
+ul.cm-sslist li,
+ul.crsa-cm-list li > div {
+    padding-left: 5px;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 14px;
+    font-variant: small-caps;
+}
+
+ul.cm-sslist li i.fa-bars,
+ul.crsa-cm-list li i.fa-bars {
+    position: absolute;
+    right: 4px;
+    display: block;
+    top: 2px;
+    width: 16px;
+    color: rgba(255, 255, 255, 0.33);
+    cursor: move;
+}
+
+.cm-h-action {
+    color: #fff !important;
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 13px;
+    font-variant: small-caps;
+}
+
+.cm-sslist-manage {
+    color: #fff !important;
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 13px;
+    font-variant: small-caps;
+}
+
+.crsa-cm-rules .filter-form {
+    width: 222px;
+    margin-left: 8px;
+}
+
+ul.crsa-cm-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px;
+}
+
+ul.crsa-cm-list ul {
+    list-style: none;
+    padding-left: 0px;
+    margin: 0 0 0px;
+}
+
+ul.crsa-cm-list li {
+    list-style: none;
+    padding: 0;
+}
+
+h3.crsa-cm-cs {
+    color: #fff;
+    margin-top: 12px;
+    margin-left: 8px;
+    font-size: 13px;
+    position: relative;
+    max-width: 140px;
+    word-wrap: break-word;
+    font-variant: normal;
+}
+
+.cm-varlist-add {
+    color: #fff !important;
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 13px;
+    font-variant: small-caps;
+    top: 2px;
+}
+
+#crsa-vars .crsa-field-color .sp-replacer {
+    right: 36px;
+}
+
+#crsa-vars div.crsa-field input.crsa-input {
+    width: 104px;
+}
+
+#crsa-vars div.crsa-field a {
+    position: absolute;
+    top: 1px;
+    right: 12px;
+}
+
+#crsa-vars div.crsa-field a i {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#crsa-vars > div {
+    margin-bottom: 20px;
+}
+
+#crsa-vars h3.crsa-cm-cs {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+    margin-left: 0;
+    padding-left: 8px;
+    padding-bottom: 2px;
+    color: #dadada;
+    max-width: 100%;
+    padding-right: 80px;
+}
+
+ul.crsa-cm-list i.fa {
+    position: absolute;
+    display: block;
+    top: 2px;
+    width: 16px;
+    color: rgba(255, 255, 255, 0.33);
+    cursor: pointer;
+}
+
+ul.crsa-cm-list i.fa:hover {
+    color: #fff;
+}
+
+ul.crsa-cm-list i.fa-code {
+    right: 52px;
+}
+
+ul.crsa-cm-list i.fa-trash-o {
+    right: 28px;
+}
+
+ul.crsa-cm-list i.crsa-cm-apply {
+    right: auto;
+    left: 3px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+#crsa-rules-out ul.crsa-cm-list i.crsa-cm-apply {
+    color: #ffee00;
+}
+
+ul.crsa-cm-list a.crsa-cm-edit {
+    max-width: 140px;
+    margin-left: 20px;
+    display: inline-block;
+    line-height: 1;
+    max-height: 28px;
+    overflow: hidden;
+    position: relative;
+    top: 2px;
+}
+
+ul.crsa-cm-list li.crsa-cm-media > div {
+    padding-left: 25px;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #ffe000;
+}
+
+ul.crsa-cm-list li.crsa-cm-media > ul {
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+ul.crsa-cm-list li.crsa-cm-has-rule > div a {
+    color: white;
+}
+
+.cm-sslist-addrule {
+    color: #fff !important;
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 13px;
+    font-variant: small-caps;
+    top: 1px;
+    right: 8px;
+}
+
+.cm-prop-addrule {
+    color: #fff !important;
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 13px;
+    font-variant: small-caps;
+    top: -24px;
+    right: 8px;
+}
+
+#crsa-preview.cm-preview {
+    width: 400px;
+}
+
+#crsa-preview.cm-preview .content {
+    border: none;
+    background: #333;
+}
+
+#crsa-preview.cm-preview .content pre {
+    border: none;
+    font-size: 11px;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+span.cm-cp-media {
+    color: #ffe000;
+}
+
+span.cm-cp-raw {
+    color: #fff;
+}
+
+span.cm-cp-sel {
+    color: #6cadd6;
+}
+
+span.cm-cp-prop {
+    color: #fff;
+}
+
+span.cm-cp-val {
+    color: #A6E22E;
+}

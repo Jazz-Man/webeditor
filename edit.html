@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Pinegrow Web Designer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/ico" href="favicon.ico"/>
+
+    <link href="lib/jqueryui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+    <link href="bootstrap/less/bootstrap.css" rel="stylesheet">
+    <link href="lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/spectrum/spectrum.css" rel="stylesheet">
+    <link href="lib/crsa/crsa.browser.css" rel="stylesheet">
+
+    <link href="lib/codemirror/lib/codemirror.css" rel="stylesheet">
+    <link href="lib/codemirror/addon/fold/foldgutter.css" rel="stylesheet">
+    <link href="lib/codemirror/addon/hint/show-hint.css" rel="stylesheet">
+    <link href="lib/codemirror/theme/ambiance.css" rel="stylesheet">
+    <link href="lib/codemirror/theme/blackboard.css" rel="stylesheet">
+    <link href="lib/codemirror/theme/eclipse.css" rel="stylesheet">
+    <link href="lib/codemirror/theme/elegant.css" rel="stylesheet">
+    <link href="lib/codemirror/theme/mbo.css" rel="stylesheet">
+    <link href="lib/codemirror/theme/midnight.css" rel="stylesheet">
+    <link href="lib/codemirror/theme/monokai.css" rel="stylesheet">
+    <link href="lib/codemirror/theme/neat.css" rel="stylesheet">
+    <link href="lib/codemirror/addon/dialog/dialog.css" rel="stylesheet">
+
+    <link href="lib/crsa/edit.css" rel="stylesheet">
+
+    <script src="lib/less/less.js"></script>
+
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/jqueryui/js/jquery-ui-1.10.3.custom.js"></script>
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+        $.widget.bridge('uitooltip', $.ui.tooltip);
+
+        if(!console) {
+            console = {log: function() {}};
+        }
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/nestedSortable/jquery.mjs.nestedSortable.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+<script src="lib/crsa/css.helpers.min.js"></script>
+    <script src="lib/crsa/crsa.select.min.js"></script>
+    <script src="lib/crsa/crsa.undo.min.js"></script>
+    <script src="lib/crsa/crsa.css.min.js"></script>
+    <script src="lib/crsa/crsa.pages.min.js"></script>
+    <script src="lib/crsa/crsa.storage.min.js"></script>
+    <script src="lib/crsa/crsa.store.min.js"></script>
+    <script src="lib/crsa/crsa.project.min.js"></script>
+    <script src="lib/crsa/pg.ui.min.js"></script>
+
+    <script src="lib/crsa/crsa.tree.min.js"></script>
+    <script src="lib/crsa/app.explainer.min.js"></script>
+    <script src="lib/crsa/crsa.tour.min.js"></script>
+    <script src="lib/spectrum/spectrum.js"></script>
+    <script src="lib/formathtml/formathtml.js"></script>
+    <script src="lib/crsa/pinegrow.min.js"></script>
+    <script src="lib/crsa/pg-parser.min.js"></script>
+    <script src="lib/crsa/pg-query.min.js"></script>
+    <script src="lib/crsa/crsa.edit.min.js"></script>
+
+    <script src="frameworks/cssrules.js"></script>
+    <script src="frameworks/html.js"></script>
+    <script src="frameworks/bootstrap.3.3.1.js"></script>
+    <script src="frameworks/foundation.5.4.5.js"></script>
+    <script src="frameworks/960grid.js"></script>
+    <script src="frameworks/js.revolution.js"></script>
+    <script src="frameworks/pinegrow-angular.js"></script>
+    <script src="frameworks/pg.fontawesome.js"></script>
+
+<!--
+    <script src="pgwp/pg-wordpress-utils.js"></script>
+    <script src="pgwp/pg-wordpress-author.js"></script>
+    <script src="pgwp/pg-wordpress-bookmarks.js"></script>
+    <script src="pgwp/pg-wordpress-category.js"></script>
+    <script src="pgwp/pg-wordpress-code.js"></script>
+    <script src="pgwp/pg-wordpress-comments.js"></script>
+    <script src="pgwp/pg-wordpress-conditions.js"></script>
+    <script src="pgwp/pg-wordpress-links.js"></script>
+    <script src="pgwp/pg-wordpress-loop.js"></script>
+    <script src="pgwp/pg-wordpress-nav.js"></script>
+    <script src="pgwp/pg-wordpress-parts.js"></script>
+    <script src="pgwp/pg-wordpress-post.js"></script>
+    <script src="pgwp/pg-wordpress-quicky.js"></script>
+    <script src="pgwp/pg-wordpress-site.js"></script>
+    <script src="pgwp/pg-wordpress-user.js"></script>
+    <script src="pgwp/pg-wordpress-components.js"></script>
+    <script src="pgwp/pg-wordpress.js"></script>
+-->
+
+<script>
+    require('nw.gui').Window.get().evalNWBin(null, 'frameworks/pgwp.bin');
+</script>
+
+   <!--<script src="lib/crsa/crsa.min.js"></script>-->
+
+<script>
+    require('nw.gui').Window.get().evalNWBin(null, 'lib/crsa/crsa.bin');
+</script>
+<script>
+    function crsaIsBig() {
+        return crsaStorage.getValue("crsaBig") ? !0 : isApp() ? 1 : 1
+    }
+</script>
+   
+    <script src="lib/codemirror/lib/codemirror.js"></script>
+    <script src="lib/codemirror/addon/hint/show-hint.js"></script>
+    <script src="lib/codemirror/addon/hint/xml-hint.js"></script>
+    <script src="lib/codemirror/addon/hint/html-hint.js"></script>
+    <script src="lib/codemirror/addon/fold/foldcode.js"></script>
+    <script src="lib/codemirror/addon/fold/foldgutter.js"></script>
+    <script src="lib/codemirror/addon/fold/brace-fold.js"></script>
+    <script src="lib/codemirror/addon/fold/xml-fold.js"></script>
+    <script src="lib/codemirror/addon/fold/markdown-fold.js"></script>
+    <script src="lib/codemirror/addon/fold/comment-fold.js"></script>
+    <script src="lib/codemirror/mode/xml/xml.js"></script>
+    <script src="lib/codemirror/mode/javascript/javascript.js"></script>
+    <script src="lib/codemirror/mode/css/css.js"></script>
+    <script src="lib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="lib/codemirror/mode/clike/clike.js"></script>
+    <script src="lib/crsa/pgphp/php.js"></script>
+    <script src="lib/codemirror/addon/search/match-highlighter.js"></script>
+    <script src="lib/codemirror/addon/search/search.js"></script>
+    <script src="lib/codemirror/addon/search/searchcursor.js"></script>
+    <script src="lib/codemirror/addon/dialog/dialog.js"></script>
+
+    <script src="lib/emmet/emmet.js"></script>
+
+    <script>
+        var qs = (function(a) {
+            if (a == "") return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i)
+            {
+                var p=a[i].split('=');
+                if (p.length != 2) continue;
+                b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            return b;
+        })(window.location.search.substr(1).split('&'));
+
+        crsaProject = new CrsaProject();
+        var d = {
+            url : 'placeholders/',
+            name : 'Sample assets',
+            pages : []
+        };
+        for(var i = 1; i <= 9; i++) {
+            d.pages.push({src: 'img' + i + '.jpg', image: 'img' + i + '.jpg'});
+        }
+        crsaProject.fromSimpleTemplate(d);
+
+        window.crsaStorage = new CrsaLocalStorage();
+
+        $(function() {
+
+            var pages = [
+            ];
+
+            for(var i = 0; i < 10; i++) {
+                var key = i == 0 ? 'page' : 'page' + i;
+                var page = key in qs ? qs[key] : null;
+                if(page) {
+                    pages.push({name: 'Page', src: page})
+                }
+            }
+
+            var examples = {
+                url : 'templates/examples/',
+                name : 'Bootstrap 3.3.1',
+                pages : [
+                    {src: 'new.html', tag: 'page'},
+                    {src: 'starter-template.html', tag: 'page'},
+                    {src: 'dashboard.html', tag: 'page'},
+                    {src: 'jumbotron.html', tag: 'page'},
+                    {src: 'jumbotron-narrow.html', tag: 'page'},
+                    {src: 'justified-nav.html', tag: 'page'},
+                    {src: 'navbar.html', tag: 'page'},
+                    // {src: 'navbar-fixed-top.html', tag: 'page'},
+                    //{src: 'navbar-static-top.html', tag: 'page'},
+                    {src: 'non-responsive.html', tag: 'page'},
+                    {src: 'offcanvas.html', tag: 'page'},
+                    //{src: 'signin.html', tag: 'page'},
+                    {src: 'grid.html', tag: 'page'},
+                    {src: 'sticky-footer.html', tag: 'page'},
+                    {src: 'sticky-footer-navbar.html', tag: 'page'},
+                    {src: 'theme.html', tag: 'page'},
+                    {src: 'carousel.html', tag: 'page'},
+                    {src: 'cover.html', tag: 'page'},
+                    {src: 'bootstrap', required: true, children:[
+                        {src: 'css', required: true, children:[
+                            {src: 'bootstrap.css', required: true},
+                            {src: 'bootstrap.css.map', required: true},
+                            {src: 'bootstrap.min.css', required: true},
+                            {src: 'bootstrap-theme.css', required: true},
+                            {src: 'bootstrap-theme.min.css', required: true}
+                        ]},
+                        {src: 'fonts', required: true, children:[
+                            {src: 'glyphicons-halflings-regular.eot', required: true},
+                            {src: 'glyphicons-halflings-regular.svg', required: true},
+                            {src: 'glyphicons-halflings-regular.ttf', required: true},
+                            {src: 'glyphicons-halflings-regular.woff', required: true}
+                        ]},
+                        {src: 'js', required: true, children:[
+                            {src: 'bootstrap.js', required: true},
+                            {src: 'bootstrap.min.js', required: true}
+                        ]}
+                    ]},
+                    {src: 'assets', required: true, children:[
+                        {src: 'js', required: true, children:[
+                            {src: 'jquery.min.js', required: true},
+                            {src: 'ie10-viewport-bug-workaround.js', required: true},
+                            {src: 'retina.min.js', required: true},
+                            {src: 'holder.js', required: true},
+                            {src: 'holder.min.js', required: true}
+                        ]}
+                    ]}
+                ]
+            }
+
+            var foundation = {
+                url : 'templates/foundation/',
+                name : 'Foundation 5.4.5',
+                pages : [
+                    {src: 'blank.html', tag: 'page'},
+                    {src: 'branded.html', tag: 'page'},
+                    {src: 'blog.html', tag: 'page'},
+                    {src: 'feed.html', tag: 'page'},
+                    {src: 'grid.html', tag: 'page'},
+                    {src: 'orbit-home.html', tag: 'page'},
+                    {src: 'banner-home.html', tag: 'page'},
+                    {src: 'sidebar.html', tag: 'page'},
+                    {src: 'contact.html', tag: 'page'},
+                    {src: 'marketing.html', tag: 'page'},
+                    {src: 'reality.html', tag: 'page'},
+                    {src: 'so-boxy.html', tag: 'page'},
+                    {src: 'store.html', tag: 'page'},
+                    {src: 'workspace.html', tag: 'page'},
+                    {src: 'img', required: true, children:[
+                    ]},
+                    {src: 'css', required: true, children:[
+                        {src: 'foundation.css', required: true},
+                        {src: 'foundation.min.css', required: true},
+                        {src: 'normalize.css', required: true}
+                    ]},
+                    {src: 'js', required: true, children:[
+                        {src: 'foundation.min.js', required: true},
+                        {src: 'vendor', required: true, children:[
+                            {src: 'fastclick.js', required: true},
+                            {src: 'jquery.cookie.js', required: true},
+                            {src: 'jquery.js', required: true},
+                            {src: 'modernizr.js', required: true},
+                            {src: 'placeholder.js', required: true}
+                        ]}
+                    ]}
+                ]
+            }
+
+            var bootstrap2 = {
+                url : 'templates/bootstrap2/',
+                name : 'Bootstrap 2.3',
+                frameworks : ['bs2.3.2'],
+                pages : [
+                  //  {src: 'new.html', tag: 'page'},
+                    {src: 'starter-template.html', tag: 'page'},
+                    {src: 'fluid.html', tag: 'page'},
+                    {src: 'hero.html', tag: 'page'},
+                    {src: 'justified-nav.html', tag: 'page'},
+                    {src: 'signin.html', tag: 'page'},
+                    {src: 'sticky-footer.html', tag: 'page'},
+                 //   {src: 'sticky-footer-navbar.html', tag: 'page'},
+                    {src: 'marketing-narrow.html', tag: 'page'},
+                    {src: 'bootstrap', required: true, children:[
+                        {src: 'css', required: true, children:[
+                            {src: 'bootstrap.css', required: true},
+                            {src: 'bootstrap.min.css', required: true},
+                            {src: 'bootstrap-responsive.css', required: true},
+                            {src: 'bootstrap-responsive.min.css', required: true}
+                        ]},
+                        {src: 'js', required: true, children:[
+                            {src: 'bootstrap.js', required: true},
+                            {src: 'bootstrap.min.js', required: true},
+                            {src: 'jquery.js', required: true}
+                        ]}
+                    ]}
+                ]
+            }
+
+            var html = {
+                url : 'templates/html/',
+                name : 'Plain HTML',
+                pages : [
+                    {src: 'new.html', tag: 'page'},
+                    {src: 'css', required: true, children:[
+                         {src: 'style.css', required: true}
+                    ]}
+                ]
+            }
+
+            var angular = {
+                url : 'templates/angular/',
+                name : 'AngularJS',
+                pages : [
+                    {src: 'todo.html', tag: 'page'},
+                    {src: 'todo.js', required: true},
+                    {src: 'angular.js', required: true},
+                    {src: 'bootstrap', required: true, children:[
+                        {src: 'css', required: true, children:[
+                            {src: 'bootstrap.css', required: true}
+                        ]},
+                        {src: 'fonts', required: true, children:[
+                            {src: 'glyphicons-halflings-regular.eot', required: true},
+                            {src: 'glyphicons-halflings-regular.svg', required: true},
+                            {src: 'glyphicons-halflings-regular.ttf', required: true},
+                            {src: 'glyphicons-halflings-regular.woff', required: true}
+                        ]},
+                        {src: 'js', required: true, children:[
+                            {src: 'bootstrap.js', required: true},
+                            {src: 'bootstrap.min.js', required: true}
+                        ]}
+                    ]},
+                    {src: 'assets', required: true, children:[
+                        {src: 'js', required: true, children:[
+                            {src: 'jquery.min.js', required: true},
+                            {src: 'ie10-viewport-bug-workaround.js', required: true},
+                            {src: 'retina.min.js', required: true}
+                        ]}
+                    ]}
+                ]
+            }
+
+
+            $('body').crsa({
+                pages : pages,
+                templates : [examples, foundation, html, angular]
+                //templates : [examples, foundation, bootstrap2, html]
+            });
+
+        });
+
+        if(isApp()) {
+        } else {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-344271-72', 'pinegrow.com');
+        }
+        gaSendPageView();
+
+    </script>
+
+
+
+</body></html>

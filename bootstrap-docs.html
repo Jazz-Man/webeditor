@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Pinegrow Web Designer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/ico" href="favicon.ico"/>
+
+    <link href="lib/jqueryui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+    <link href="bootstrap/less/bootstrap.css" rel="stylesheet">
+    <link href="lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/spectrum/spectrum.css" rel="stylesheet">
+    <link href="lib/crsa/crsa.browser.css" rel="stylesheet">
+    <link href="lib/crsa/edit.css" rel="stylesheet">
+
+    <script src="lib/less/less.js"></script>
+
+  </head>
+
+  <body>
+
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/jqueryui/js/jquery-ui-1.10.3.custom.js"></script>
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+        $.widget.bridge('uitooltip', $.ui.tooltip);
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/nestedSortable/jquery.mjs.nestedSortable.js"></script>
+
+    <script src="lib/crsa/css.helpers.min.js"></script>
+    <script src="lib/crsa/crsa.select.min.js"></script>
+    <script src="lib/crsa/crsa.undo.min.js"></script>
+    <script src="lib/crsa/crsa.css.min.js"></script>
+    <script src="lib/crsa/crsa.pages.min.js"></script>
+    <script src="lib/crsa/crsa.storage.min.js"></script>
+    <script src="lib/crsa/crsa.store.min.js"></script>
+    <script src="lib/crsa/crsa.project.min.js"></script>
+    <script src="lib/crsa/crsa.edit.min.js"></script>
+    <script src="lib/crsa/crsa.tree.min.js"></script>
+    <script src="lib/crsa/app.explainer.min.js"></script>
+    <script src="lib/crsa/crsa.tour.min.js"></script>
+    <script src="lib/spectrum/spectrum.js"></script>
+    <script src="lib/formathtml/formathtml.js"></script>
+    <script src="lib/crsa/pinegrow.min.js"></script>
+    <script src="lib/crsa/crsa.min.js"></script>
+
+
+    <script src="frameworks/html.js"></script>
+    <script src="frameworks/bootstrap.3.1.0.js"></script>
+    <script src="frameworks/cssrules.js"></script>
+
+    <script src="lib/ace/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+    <script>
+        var qs = (function(a) {
+            if (a == "") return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i)
+            {
+                var p=a[i].split('=');
+                if (p.length != 2) continue;
+                b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            return b;
+        })(window.location.search.substr(1).split('&'));
+
+        crsaProject = new CrsaProject();
+        var d = {
+            url : 'placeholders/',
+            name : 'Sample assets',
+            pages : []
+        };
+        for(var i = 1; i <= 9; i++) {
+            d.pages.push({src: 'img' + i + '.jpg', image: 'img' + i + '.jpg'});
+        }
+        crsaProject.fromSimpleTemplate(d);
+
+
+        var firstPage = true;
+
+        var logic = new PgCustomLogic();
+
+        logic.nodeFilter = function(node, active_parent) {
+            if(active_parent) return active_parent;
+
+            var ok = false;
+
+            var cls = node.className;
+            if(cls) {
+                if(cls.indexOf('bs-example') >= 0 || cls.indexOf('bs-docs-grid') >= 0 || cls.indexOf('show-grid') >= 0 || cls.indexOf('responsive-utilities') >= 0) {
+                    return true;
+                }
+            }
+            return ok;
+        }
+
+        logic.getTreeRootForElement = function($el, $iframe) {
+            if(!$el) return null;
+            var $r = $el.closest('.bs-example, .bs-docs-grid, .show-grid, .responsive-utilities');
+            return $r.length > 0 ? $r : null;
+        }
+
+        logic.onPageLoaded = function(crsaPage) {
+            if(!firstPage) return;
+
+            firstPage = false;
+            var newCrsaPage = crsaPage.duplicate();
+            newCrsaPage.deviceWidth = 320;
+            newCrsaPage.readOnly = true;
+            $.fn.crsa('openPage', newCrsaPage.url, function() {
+                newCrsaPage.setLiveUpdate(crsaPage);
+            }, null, newCrsaPage);
+        }
+
+        logic.onPageChanged = function(crsaPage, $el) {
+            if($el) {
+                $el = $el.closest('.bs-example, .bs-docs-grid, .show-grid');
+                if($el.length > 0) {
+                    if($el.is('.bs-docs-grid, .show-grid')) {
+                        $el.find('[class^="col-"]').each(function(i, e) {
+                            var $e = $(e);
+                            var h = removeCrsaClassesFromHtml($e.attr('class'));
+                            $e.html('.' + h.replace(/\s+/g, '.'));
+                        });
+                    }
+                    var $code = $el.next();
+                    if($code.is('.highlight')) {
+                        var html = removeCrsaClassesFromHtml($el.html());
+                        html = html_beautify(html);
+                        html = html.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+                        html = '<pre class="crsa">' + html + '</pre>';
+                        $code.html(html);
+                    }
+                }
+            }
+        }
+        logic.scrollMode = true;
+        logic.defaultZoom = 'fit';
+        logic.showOnlyClassesInProperties = true;
+        logic.openTab = 'prop';
+        logic.warnOnUnloadPage = false;
+        logic.textPropsElementNotSelected = 'Click on any example or grid in Bootstrap documentation to play with it.'
+
+        logic.navBar = '<div id="crsa-topbar" class="navbar navbar-inverse">\
+            <div class="navbar-header">\
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span>  <span class="icon-bar"></span>  <span class="icon-bar"></span>  <span class="icon-bar"></span></button>\
+                <a class="navbar-brand" href="http://pinegrow.com" target="_blank">Interactive Bootstrap Docs by <img style="vertical-align:middle;" src="images/logo_36.png" height="12" /><span class="sr-only">Pinegrow Web Designer</span></a>\
+            </div>\
+            <div class="collapse navbar-collapse" id="main-navbar">\
+                <ul class="nav navbar-nav">\
+                    <li><a id="crsa-undo" href="#">Undo</a></li>\
+                    <li><a id="crsa-redo" href="#">Redo</a></li>\
+                    <li class="dropdown menu-file"><a href="#" class="dropdown-toggle menu-support" data-toggle="dropdown">Support <b class="caret"></b></a>\
+                        <ul class="dropdown-menu">\
+                           <!-- <li><a href="#" class="menu-support-tour">Guided tour</a></li>-->\
+                            <li><a href="http://pinegrow.com/docs.html" target="_blank" class="menu-support-docs">How to use Pinegrow</a></li>\
+                            <li class="divider"></li>\
+                            <li><a href="#" class="menu-support-contact">Contact...</a></li>\
+                            <li><a href="#" class="menu-support-about">About...</a></li>\
+                        </ul>\
+                    </li>\
+                </ul>\
+                <form class="navbar-form navbar-left" id="crsa-zoom">\
+                    <div class="btn-group">\
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Zoom <span class="caret"></span>\
+                        </button>\
+                        <ul class="dropdown-menu" role="menu">\
+                            <li><a href="#">Zoom</a></li>\
+                        </ul>\
+                    </div>\
+                </form>\
+                <ul class="nav navbar-nav pull-right trial">\
+                    <li>You\'re playing with a trial version. <a href="#">Upgrade to the Real Thing.</a></li>\
+                </ul>\
+            </div>\
+        </div>';
+
+        $(function() {
+
+            var pages = [
+                { name : 'Css', src : '../PinegrowWeb/examples/bsdocs/css.html'}
+            ];
+
+            window.crsaStorage = new CrsaLocalStorage();
+
+            $('body').crsa({
+                pages : pages,
+                template : null,
+                custom_logic : logic
+            });
+
+            showAlert('<p>Switch between <b>CSS</b> and <b>Components</b> sections of Bootstrap Docs and experiment with examples:</p><img src="images/bsdocs@2x.jpg" class="img-responsive img-thumbnail"  style="margin-bottom:8px;"/><p>Powered by <a href="http://pinegrow.com" target="_blank">Pinegrow Web Designer</a>.</p>', 'Hi, there! Welcome to interactive Bootstrap docs.');
+
+        });
+
+        if(isApp()) {
+            gaNoCookieSendPageView('UA-344271-72', '/PinegrowApp', 'Pinegrow App Run');
+        } else {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-344271-72', 'pinegrow.com');
+            ga('send', 'pageview');
+        }
+
+    </script>
+
+</body></html>

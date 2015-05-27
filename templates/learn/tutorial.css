@@ -1,0 +1,74 @@
+.highlight {
+  background-color: #ffd900;
+}
+.arrow {
+  font-size: 100%;
+  color: #979797;
+}
+.target-box {
+  background-color: #dfdfdf;
+  margin: 10px 0;
+  min-height: 200px !important;
+  clear: both;
+}
+.target-box .row {
+  min-height: 200px !important;
+}
+body {
+  font-size: 175%;
+}
+h3 {
+  font-weight: bold;
+}
+h3 {
+  font-weight: 300;
+  color: #146cb5;
+}
+h2 {
+  color: #146cb5;
+  font-variant: small-caps;
+  font-weight: normal;
+}
+h1 {
+  font-weight: 200;
+  text-align: center;
+  font-size: 3.2em;
+  color: #5c5c5c;
+}
+.target-box.crsa-empty-placeholder,
+.target-box .crsa-empty-placeholder {
+  height: 200px;
+}
+.jumbotron {
+  background-image: url("images/aplane.jpg");
+  background-size: cover;
+  background-position: 0 30%;
+  color: #ffffff;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.33);
+  padding-bottom: 50px;
+}
+.jumbotron h2 {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+}
+.jumbotron p {
+  color: rgba(255, 255, 255, 0.7);
+}
+.jumbotron h1 small {
+  color: rgba(255, 255, 255, 0.5);
+}
+.img-right {
+  margin-left: 20px;
+}
+.img-block {
+  margin-bottom: 8px;
+}
+.img-inline {
+  display: inline-block;
+}
+.img-left {
+  margin-right: 20px;
+}
+.clear-both {
+  clear: both;
+}

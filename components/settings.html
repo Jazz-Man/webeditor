@@ -1,0 +1,80 @@
+<div data-pg-component="settings">
+
+    <form role="form">
+        <div class="checkbox">
+            <label class="control-label">
+                <input type="checkbox" class="backup">Save <b>backup</b> files to _pgbackup folder</label>
+            <p class="help-block">If enabled Pinegrow saves copy of existing HTML or CSS file to _pgbackup folder before overwriting the original. You can turn this off if you're using source control to keep track of file revisions.</p>
+        </div>
+        <div class="checkbox">
+            <label class="control-label">
+                <input type="checkbox" class="show-placeholders"><b>Show placeholders</b> on empty elements</label>
+            <p class="help-block">Empty divs (and similar elements) have height 0px and are thus not visible on the page. Enable this option to apply min-height:100px to empty divs, sections and similar elements. This only affects how elements are shown in Pinegrow, display in browser is not affected. Reload pages to apply the setting.</p>
+        </div>
+        <div class="checkbox">
+            <label class="control-label">
+                <input type="checkbox" class="auto-reloading"><b>Auto-reload files</b> when changed outside of Pinegrow</label>
+            <p class="help-block">HTML and .CSS/.LESS files will be auto-reloaded if modified in external editors.</p>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="formInputLocalhost">Internal Webserver hostname</label>
+            <input id="formInputLocalhost" class="form-control webserver-host" />
+            <p class="help-block">Pinegrow uses internal webserver to access local HTML files. Change the value if you experience problems with the default setting.</p>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="formInputPort">Internal Webserver port</label>
+            <input id="formInputPort" class="form-control webserver-port" />
+            <p class="help-block">Pinegrow uses internal webserver to access local HTML files. Select a free port and make sure that incoming connections are not blocked by a firewall.</p>
+        </div>
+
+        <!--
+        <div class="form-group">
+            <label class="control-label" for="formInputCodeEditor">Use external code editor</label>
+            <input id="formInputCodeEditor" class="form-control code-editor" />
+            <p class="help-block">Use {FILE} to specify file name in command line arguments. If not specified, file name will be appended to the command.</p>
+        </div>
+        -->
+        <div class="form-group">
+            <label class="control-label" for="formInput1">Code editor theme</label>
+            <select id="formInput1" class="form-control code-theme">
+                <option>default</option>
+                <option>ambiance</option>
+                <option>blackboard</option>
+                <option>eclipse</option>
+                <option>elegant</option>
+                <option>mbo</option>
+                <option>midnight</option>
+                <option>monokai</option>
+                <option>neat</option>
+            </select>
+            <p class="help-block">Select the theme that is used in page and element code view.</p>
+        </div>
+        <div class="checkbox">
+            <label class="control-label">
+                <input type="checkbox" class="code-editor-emmet">Use Emmet in code editor (experimental)</label>
+            <p class="help-block">Emmet has a couple of useful <a href="https://github.com/emmetio/codemirror#default-keybindings" class="external">HTML editing functions</a>.</p>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="formInput2">Code indent size</label>
+            <select id="formInput2" class="form-control html-indent-size">
+                <option>1</option>
+                <option>2</option>
+                <option>4</option>
+                <option>8</option>
+            </select>
+            <p class="help-block">Size of HTML code indent.</p>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="formInput3">Zoom UI</label>
+            <select id="formInput3" class="form-control ui-zoom">
+                <option value="-2">50%</option>
+                <option value="-1">75%</option>
+                <option value="0">100%</option>
+                <option value="1">125%</option>
+                <option value="2">150%</option>
+                <option value="4">200%</option>
+            </select>
+            <p class="help-block">Increase or decrease user interface size.</p>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,50 @@
+.crsa-project-browser {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    left: 10%;
+    top: 10%;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.crsa-project-browser h2 {
+
+}
+
+.crsa-project-tree {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 30%;
+    overflow: auto;
+}
+
+.crsa-project-tree ul {
+
+}
+
+.crsa-project-tree li {
+
+}
+
+.crsa-project-tree div {
+
+}
+
+.crsa-project-grid {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    overflow: auto;
+}
+
+.crsa-project-upload {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

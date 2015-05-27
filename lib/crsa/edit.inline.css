@@ -1,0 +1,21 @@
+.crsa-highlighted {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.9);
+!important
+}
+
+.crsa-selected {
+    box-shadow: 0 0 10px rgba(0, 180, 255, 0.9);
+!important
+}
+
+.crsa-edit {
+    cursor: default;
+}
+
+*[contenteditable="true"] {
+    outline: yellow dashed 2px;
+}
+
+.crsa-placeholder {
+    min-height: 100px;
+}

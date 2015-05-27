@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="crsa-stop-animations">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>Blank Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="tutorial.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h2 class="text-center">Pinegrow tutorial</h2>
+            <p class="lead text-center">Become Pinegrow expert in 10 minutes and save hours every week</p>
+            <h1><small>Part 3 </small>Style</h1> 
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="images/css_all.jpg" width="300" class="pull-right img-thumbnail img-right">
+                <p>Pinegrow lets you style your pages with <b>CSS rules</b>. Here's how to do it:</p>
+                <p>Open <b>CSS tab</b> in the left panel.</p>
+                <p>It has <b>two sections</b>: on the top we have a <b>list of stylesheets</b> that are attached to the page and below that we have a <b>list of CSS rules</b> in these stylesheets. In this tutorial we are working with just one stylesheet.</p>
+                <h3>List of document's stylesheets</h3>
+                <p>Let's look at the Stylesheets section:</p>
+                <img src="images/css_sslist.jpg" class="img-block img-thumbnail" width="300">
+                <p>Click on the two icons next to TUTORIALS.CSS. <b>Checkmark</b> 
+                    <img src="images/css_sscheck.jpg" class="img-inline" height="21">hides / shows CSS rules in the list while the <b>eye icon</b> 
+                    <img src="images/css_sseye.jpg" class="img-inline" height="21">will enable / disable the stylesheet. <b>Try clicking on both.</b> See how this page looks when stylesheet is disabled.</p>
+                <p><b>Clicking on the name </b>TUTORIALS.CSS will hide all other stylesheets and show just the rules from tutorials.css. In this example we have just one stylesheet so that doesn't do much.</p>
+                <p>Let's move on to the CSS Rules section.</p>
+                <h3>List of CSS rules</h3>
+                <p>The <b>search box</b>&nbsp;helps us to quickly find rules.</p>
+                <img src="images/css_search.jpg" class="img-block img-thumbnail" width="300">
+                <p class="highlight">Select this paragraph. You'll see that the <b>.highlight</b> rule will light up. This shows that the .highlight rule affects the selected element. It affects it because this paragraph has class <b>highlight</b>.</p>
+                <h3>Assign classes to elements</h3>
+
+                <p>In CSS Rules list, click on <b>the plus or minus icon</b>&nbsp;in front of the <b>.highlight</b> rule to <b>add or remove the class </b>from the selected element. Try clicking on the icon while the above paragraph is selected. The class will
+                    be removed. Click again to assign the class back to the selected element.</p>
+                <p>Only CSS rules that represent classes can be directly assigned to elements in this way.</p>
+                <h3>Editing rule properties</h3>
+                <p>Now click on the <b>.highlight in CSS Rules</b>. Rule <b>properties</b> will open and you can change the style properties of the rule. Try changing the background color, for example. Click on <b>Back to rules</b> at the top when you're finished.</p>
+                <h3>Editing rule code directly</h3>
+                <p>Another way to edit rules is by clicking on the <b>code icon on the right side of .highlight</b> 
+                    <img src="images/css_code.jpg" class="img-inline" height="21">rule in CSS Rules list. This will open a code editor where you can freely edit the rule.&nbsp;</p>
+                <h3>Deleting and moving rules</h3>
+                <p>Next to code edit icon we have the trashcan icon for <b>deleting</b> 
+                    <img src="images/css_trash.jpg" class="img-inline" height="21">the rule and <b>handle for moving</b> 
+                    <img src="images/css_move.jpg" class="img-inline" height="21">the rule. As you know, the order of CSS rules is important and you can change it by simply dragging a rule to a desired place. For example, notice that we have <b>two h3 rules</b>. One has font-weight set to 300 and another to bold.
+                    The last rule will take precedence. <b>Try switching the order</b> of these two rules and observe what happens.</p>
+                <h3>Adding new rules</h3>
+                <img src="images/css_addrule.jpg" class="img-block img-thumbnail" width="250">
+                <p>Let's add a new rule. Click on <b>+ Add rule</b> at the top of the <b>CSS Rules section</b> and enter a rule selector, for example <b>p</b>. Click on <b>C</b><b>reate</b> and set rule properties. For example, set the text color. You'll see that
+                    all paragraphs change color.</p>
+                <h3>Adding new class rules</h3>
+                <img src="images/css_addrule2.jpg" class="pull-right img-right img-thumbnail" width="300">
+                <p>If you add a new class rule (with . at the beginning, for example .mynewclass) you can click on <b>Create &amp; Assign</b> to create the rule and assign the class to the selected element. This is a great time saver. Again click on <b>+ Add rule</b> and
+                    try creating a new class and assigning it to the selected paragraph.</p>
+                <h3>CSS rules in element properties</h3>
+                <img src="images/css_props.jpg" class="pull-right img-right img-thumbnail" width="300">
+                <p>CSS rules are also listed among the selected element's properties. Go to <b>Prop tab</b> and select a <b>heading </b>above this paragraph. Take a look at the <b>Style section</b> at the top of properties. All CSS rules that apply to the selected
+                    element are listed there. Click on <b>+ Add class</b> at the top of the Style section.</p>
+                <p>A separate <b>CSS panel will open</b>. You can <b>move</b> it around. There you can <b>create new rule</b> as we did before or <b>assign</b> one of the existing <b>classes</b>. Try clicking on the <b>assign class icon</b> (yellow arrow) for .highlight
+                    class.
+                </p>
+                <p>Class highlight was assigned to the selected heading and is now shown in <b>Prop Style section</b> as well. There classes have a <b>remove icon</b> (x at the right side) that will remove the class from the element. Try removing highlight class
+                    in this way.</p>
+                <h3>To be continued...</h3>
+                <p>So much for now. The next step is playing with <b>variables</b>. Variables are great for making CSS rules easily customisable. We're working on a tutorial for that. In the meantime just switch to <b>Vars tab</b> and try changing the values.
+                    CSS rules use @variableName instead of hard-coded values. Checkout font color and background section of .jumbotron CSS class for example of how variables can be used.</p>
+                <p>See you soon!</p>
+                <p>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
